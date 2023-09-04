@@ -256,3 +256,13 @@ C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_
 C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\Store.DataAccess.pdb
 C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\Store.Models.pdb
 C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\Store.Utility.pdb
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\System.Web.Mvc.dll
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\System.Web.Razor.dll
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\System.Web.Helpers.dll
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\System.Web.WebPages.Deployment.dll
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\System.Web.WebPages.Razor.dll
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\System.Web.WebPages.dll
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\Microsoft.Web.Infrastructure.dll
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\obj\Debug\net8.0\Book_Store.MvcApplicationPartsAssemblyInfo.cs
