@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Store.DataAccess.Repository.IRepository;
 using Store.Models;
 using Store.Models.ViewModels;
+using Store.Utility;
 
 namespace Book_Store.Areas.Admin.Controllers
 {
@@ -10,6 +12,7 @@ namespace Book_Store.Areas.Admin.Controllers
     //The above path was automaticly adjusted by pressing "OK" in the pop up window when moving file to area
     //But there is one more option to guide to the area:
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
 
