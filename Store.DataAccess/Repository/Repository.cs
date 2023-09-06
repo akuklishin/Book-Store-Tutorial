@@ -23,6 +23,7 @@ namespace Store.DataAccess.Repository
             //Explanation: 
             //_db.Categories == dbSet
             _db.Products.Include(u => u.Category).Include(u => u.CategoryId);
+
         }
         public void Add(T entity)
         {

@@ -14,7 +14,9 @@ namespace Store.DataAccess.Data
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Company> Companies { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -110,6 +112,38 @@ namespace Store.DataAccess.Data
                     Price100 = 20,
                     CategoryId = 17,
                     ImageUrl = ""
+                }
+                );
+            modelBuilder.Entity<Company>().HasData(
+                new Company
+                {
+                    Id = 1,
+                    Name = "LDK",
+                    StreetAddress = "11 rue Maple",
+                    City = "Laval",
+                    State = "QC",
+                    PostalCode = "123asd",
+                    PhoneNumber = "123654"
+                },
+                new Company
+                {
+                    Id = 2,
+                    Name = "Goggle",
+                    StreetAddress = "1565 rue Fantasy",
+                    City = "London",
+                    State = "ON",
+                    PostalCode = "654sdf",
+                    PhoneNumber = "123987"
+                },
+                new Company
+                {
+                    Id = 3,
+                    Name = "FameBook",
+                    StreetAddress = "27 rue Technology",
+                    City = "Calgary",
+                    State = "AB",
+                    PostalCode = "asd456",
+                    PhoneNumber = "654321987"
                 }
                 );
         }

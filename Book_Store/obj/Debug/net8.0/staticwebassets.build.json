@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zXZb/u6GMrTibvhg9Ge9nTVh+cwq2TcYiyIpPIg2Y50=",
+  "Hash": "Y3GbIQ5jzBYmAehY2XbsRqX7gJQ1sKjPlFAHLIyTHd8=",
   "Source": "Book_Store",
   "BasePath": "_content/Book_Store",
   "Mode": "Default",
@@ -1345,6 +1345,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\product\\eabfe74f-59b4-497d-a8eb-bc8630bafa1a.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Book_Store\\wwwroot\\js\\company.js",
+      "SourceId": "Book_Store",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Book_Store\\wwwroot\\",
+      "BasePath": "_content/Book_Store",
+      "RelativePath": "js/company.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\company.js"
     },
     {
       "Identity": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Book_Store\\wwwroot\\js\\product.js",

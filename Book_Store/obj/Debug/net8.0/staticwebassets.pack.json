@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\images\\product\\eabfe74f-59b4-497d-a8eb-bc8630bafa1a.jpg"
     },
     {
+      "Id": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Book_Store\\wwwroot\\js\\company.js",
+      "PackagePath": "staticwebassets\\js\\company.js"
+    },
+    {
       "Id": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Book_Store\\wwwroot\\js\\product.js",
       "PackagePath": "staticwebassets\\js\\product.js"
     },

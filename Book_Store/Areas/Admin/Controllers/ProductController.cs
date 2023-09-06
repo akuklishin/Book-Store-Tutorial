@@ -228,6 +228,7 @@ namespace Book_Store.Areas.Admin.Controllers
             }
 
             _unitOfWork.Product.Remove(productToBeDeleted);
+            TempData["Success"] = "Product deleted successfully";
             _unitOfWork.Save();
 
 
