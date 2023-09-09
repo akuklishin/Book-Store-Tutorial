@@ -296,3 +296,4 @@ C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_
 C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\bin\Debug\net8.0\Stripe.net.dll

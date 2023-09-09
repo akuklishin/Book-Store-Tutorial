@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Book_Store\\wwwroot\\images\\lawn_leaf.jpg",
+      "PackagePath": "staticwebassets\\images\\lawn_leaf.jpg"
+    },
+    {
       "Id": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Book_Store\\wwwroot\\images\\product\\685b0148-9711-4636-a23d-0cf10e6c7385.jpg",
       "PackagePath": "staticwebassets\\images\\product\\685b0148-9711-4636-a23d-0cf10e6c7385.jpg"
     },

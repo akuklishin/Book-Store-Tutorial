@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KufDvAyDC216V0H+tByoaA5LCsC0YK13tGbzkRA6Vpp/IDlHvQ78v6UBhH8dB2d/EU+0WiZnrwGRI/Z2uNbvBw==",
+  "dgSpecHash": "HgAT1MzHonRQj6Y5YTP+CJwxrPCDGPlsGU449etNWbq2dgDMbEqxFUFzhVXKb5hHTpf0xzXjaoehI/1FpqN7yg==",
   "success": true,
   "projectFilePath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Book_Store\\Book_Store.csproj",
   "expectedPackageFiles": [
@@ -194,6 +194,7 @@
     "C:\\Users\\akukl\\.nuget\\packages\\sqlitepclraw.core\\2.1.5\\sqlitepclraw.core.2.1.5.nupkg.sha512",
     "C:\\Users\\akukl\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.5\\sqlitepclraw.lib.e_sqlite3.2.1.5.nupkg.sha512",
     "C:\\Users\\akukl\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.5\\sqlitepclraw.provider.e_sqlite3.2.1.5.nupkg.sha512",
+    "C:\\Users\\akukl\\.nuget\\packages\\stripe.net\\42.4.0\\stripe.net.42.4.0.nupkg.sha512",
     "C:\\Users\\akukl\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\akukl\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\akukl\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",

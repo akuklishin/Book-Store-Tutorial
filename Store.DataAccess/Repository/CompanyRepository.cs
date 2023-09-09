@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Store.DataAccess.Repository
 {
-    internal class CompanyRepository : Repository<Company>, ICompanyRepository
+    public class CompanyRepository : Repository<Company>, ICompanyRepository
     {
         private ApplicationDbContext _db;
         public CompanyRepository(ApplicationDbContext db) : base(db)

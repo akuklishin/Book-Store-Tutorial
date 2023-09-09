@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Store.Utility;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,9 @@ builder.Services.AddRazorPages();
 //add service of ICategoryRepository (dependency Injection?)
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+//Stripe
+builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
+
 //redirect from denied pages
 builder.Services.ConfigureApplicationCookie(options => {
     options.LoginPath = $"/Identity/Account/Login";
@@ -53,7 +57,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
