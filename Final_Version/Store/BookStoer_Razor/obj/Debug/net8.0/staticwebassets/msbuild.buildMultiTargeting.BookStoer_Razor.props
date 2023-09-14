@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\BookStoer_Razor.props" />
-</Project>
