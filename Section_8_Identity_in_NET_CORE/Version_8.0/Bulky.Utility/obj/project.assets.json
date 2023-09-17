@@ -7154,11 +7154,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\delar\\OneDrive\\Desktop\\asp.net\\8\\8\\Bulky.Utility\\BulkyBook.Utility.csproj",
+      "projectUniqueName": "C:\\Users\\delar\\OneDrive\\Desktop\\version\\Version_8.0\\Bulky.Utility\\BulkyBook.Utility.csproj",
       "projectName": "BulkyBook.Utility",
-      "projectPath": "C:\\Users\\delar\\OneDrive\\Desktop\\asp.net\\8\\8\\Bulky.Utility\\BulkyBook.Utility.csproj",
+      "projectPath": "C:\\Users\\delar\\OneDrive\\Desktop\\version\\Version_8.0\\Bulky.Utility\\BulkyBook.Utility.csproj",
       "packagesPath": "C:\\Users\\delar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\delar\\OneDrive\\Desktop\\asp.net\\8\\8\\Bulky.Utility\\obj\\",
+      "outputPath": "C:\\Users\\delar\\OneDrive\\Desktop\\version\\Version_8.0\\Bulky.Utility\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
