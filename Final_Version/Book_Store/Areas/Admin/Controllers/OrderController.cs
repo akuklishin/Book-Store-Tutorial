@@ -12,11 +12,15 @@ using System.Net.NetworkInformation;
 using System.Security.Claims;
 
 namespace Book_Store.Areas.Admin.Controllers
-{
+{   
+    //setting area of access
 	[Area("Admin")]
+    //setting access roles for authorized only
     [Authorize]
 	public class OrderController : Controller
 	{
+
+        //dependency injection
 		private readonly IUnitOfWork _unitOfWork;
         [BindProperty]
         public OrderVM OrderVM { get; set; }
@@ -31,6 +35,7 @@ namespace Book_Store.Areas.Admin.Controllers
 
         public IActionResult Details(int orderId)
         {
+            //populating order view model
             OrderVM = new()
             {
                 OrderHeader = _unitOfWork.OrderHeader.Get(u => u.Id == orderId, includeProperties: "ApplicationUser"),
@@ -41,12 +46,14 @@ namespace Book_Store.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        //only admin or employee can make changes to orders
         [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
         public IActionResult UpdateOrderDetail()
         {
             //retrieve order header from db
             var orderHeaderFromDb = _unitOfWork.OrderHeader.Get(u => u.Id == OrderVM.OrderHeader.Id); //id comes from hidden input in view
 
+            //update values
             orderHeaderFromDb.Name = OrderVM.OrderHeader.Name;
             orderHeaderFromDb.PhoneNumber = OrderVM.OrderHeader.PhoneNumber;
             orderHeaderFromDb.StreetAddress = OrderVM.OrderHeader.StreetAddress;
@@ -78,26 +85,32 @@ namespace Book_Store.Areas.Admin.Controllers
 
         [HttpPost]
         [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
+        //change status to start processing method
         public IActionResult StartProcessing()
         {
             _unitOfWork.OrderHeader.UpdateStatus(OrderVM.OrderHeader.Id, SD.StatusInProcess);
             _unitOfWork.Save();
             TempData["Success"] = "Order Details Updated Successfully.";
+
+            //redirecting to the Details Action with passed orderHeader id
             return RedirectToAction(nameof(Details), new { orderId = OrderVM.OrderHeader.Id });
         }
 
         [HttpPost]
         [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
+        //change status to shipped action method
         public IActionResult ShipOrder()
         {
-
+            //get orderheader by id
             var orderHeader = _unitOfWork.OrderHeader.Get(u => u.Id == OrderVM.OrderHeader.Id);
 
+            //update necessary properties
             orderHeader.TrackingNumber = OrderVM.OrderHeader.TrackingNumber;
             orderHeader.Carrier = OrderVM.OrderHeader.Carrier;
             orderHeader.OrderStatus = SD.StatusShipped;
             orderHeader.ShippingDate = DateTime.Now;
 
+            //setting payment due date for company users
             if (orderHeader.PaymentStatus == SD.PaymentStatusDelayedPayment)
             {
                 orderHeader.PaymentDueDate = DateTime.Now.AddDays(30);
@@ -111,11 +124,13 @@ namespace Book_Store.Areas.Admin.Controllers
 
         [HttpPost]
         [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
+        //cansel order action method
         public IActionResult CancelOrder()
         {
-
+            //get order header
             var orderHeader = _unitOfWork.OrderHeader.Get(u => u.Id == OrderVM.OrderHeader.Id);
 
+            //if already paid, do refund with stripe and then change status
             if (orderHeader.PaymentStatus == SD.PaymentStatusApproved)
             {
                 var options = new RefundCreateOptions
@@ -129,10 +144,12 @@ namespace Book_Store.Areas.Admin.Controllers
 
                 _unitOfWork.OrderHeader.UpdateStatus(orderHeader.Id, SD.StatusCancelled, SD.StatusRefunded);
             }
+            //no payment yet made
             else
             {
                 _unitOfWork.OrderHeader.UpdateStatus(orderHeader.Id, SD.StatusCancelled, SD.StatusCancelled);
             }
+
             _unitOfWork.Save();
             TempData["Success"] = "Order Cancelled Successfully.";
             return RedirectToAction(nameof(Details), new { orderId = OrderVM.OrderHeader.Id });
@@ -141,6 +158,7 @@ namespace Book_Store.Areas.Admin.Controllers
 
         [ActionName("Details")]
         [HttpPost]
+        //pay now for companies functionality
         public IActionResult Details_PAY_NOW()
         {
             //populating order header and order detail
@@ -180,15 +198,19 @@ namespace Book_Store.Areas.Admin.Controllers
 
             var service = new SessionService();
             Session session = service.Create(options);
+
             _unitOfWork.OrderHeader.UpdateStripePaymentID(OrderVM.OrderHeader.Id, session.Id, session.PaymentIntentId);
+
             _unitOfWork.Save();
+
             Response.Headers.Add("Location", session.Url);
+
             return new StatusCodeResult(303);
         }
 
         public IActionResult PaymentConfirmation(int orderHeaderId)
         {
-
+            //get order header
             OrderHeader orderHeader = _unitOfWork.OrderHeader.Get(u => u.Id == orderHeaderId);
 
             if (orderHeader.PaymentStatus == SD.PaymentStatusDelayedPayment)
@@ -214,24 +236,28 @@ namespace Book_Store.Areas.Admin.Controllers
 
         #region API CALLS
         [HttpGet]
+        //display orders in DataTable
 		public IActionResult GetAll(string status)
 		{
             IEnumerable<OrderHeader> objOrderHeaders;
 
+            //if logged user is admin or employee, display all orders
             if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
             {
                 objOrderHeaders = _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser").ToList();
             }
             else
             {
-
+                //get logged user id
                 var claimsIdentity = (ClaimsIdentity)User.Identity;
                 var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
 
+                //get order header by that id
                 objOrderHeaders = _unitOfWork.OrderHeader
                     .GetAll(u => u.ApplicationUserId == userId, includeProperties: "ApplicationUser");
             }
 
+            //sorting orders by status
             switch (status)
             {
                 case "pending":

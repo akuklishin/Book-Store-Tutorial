@@ -12,6 +12,7 @@ namespace Store.DataAccess.Data
                                 
         }
 
+        //tables for db
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Company> Companies { get; set; }
@@ -21,7 +22,7 @@ namespace Store.DataAccess.Data
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
        
-
+        //creating initial inputs in db tables
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //added to solve error when added Identity

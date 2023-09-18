@@ -10,10 +10,13 @@ using System.Security.Claims;
 
 namespace Book_Store.Areas.Customer.Controllers
 {
+    //setting area of access
     [Area("customer")]
+    //setting acces only for authorized user
     [Authorize]
     public class CartController : Controller
     {
+        //dependency injection
         private readonly IEmailSender _emailSender;
         private readonly IUnitOfWork _unitOfWork;
 
@@ -26,9 +29,11 @@ namespace Book_Store.Areas.Customer.Controllers
         }
         public IActionResult Index()
         {
+            //get;ogged user id
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
 
+            //populate shopping cart view model
             ShoppingCartVM = new()
             {
                 ShoppingCartList = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == userId,
@@ -38,6 +43,7 @@ namespace Book_Store.Areas.Customer.Controllers
 
             IEnumerable<ProductImage> productImages = _unitOfWork.ProductImage.GetAll();
 
+            //display all products in cart
             foreach (var cart in ShoppingCartVM.ShoppingCartList)
             {
                 cart.Product.ProductImages = productImages.Where(u => u.ProductId == cart.Product.Id).ToList();
@@ -50,9 +56,11 @@ namespace Book_Store.Areas.Customer.Controllers
 
         public IActionResult Summary()
         {
+            //get logged user id
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
 
+            //populate shopping cart view model
             ShoppingCartVM = new()
             {
                 ShoppingCartList = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == userId,
@@ -60,8 +68,10 @@ namespace Book_Store.Areas.Customer.Controllers
                 OrderHeader = new()
             };
 
+            //get cart by logged user id
             ShoppingCartVM.OrderHeader.ApplicationUser = _unitOfWork.ApplicationUser.Get(u => u.Id == userId);
 
+            //populate order header properties on summary page
             ShoppingCartVM.OrderHeader.Name = ShoppingCartVM.OrderHeader.ApplicationUser.Name;
             ShoppingCartVM.OrderHeader.PhoneNumber = ShoppingCartVM.OrderHeader.ApplicationUser.PhoneNumber;
             ShoppingCartVM.OrderHeader.StreetAddress = ShoppingCartVM.OrderHeader.ApplicationUser.StreetAddress;
@@ -70,7 +80,7 @@ namespace Book_Store.Areas.Customer.Controllers
             ShoppingCartVM.OrderHeader.PostalCode = ShoppingCartVM.OrderHeader.ApplicationUser.PostalCode;
 
 
-
+            //display price for each product
             foreach (var cart in ShoppingCartVM.ShoppingCartList)
             {
                 cart.Price = GetPriceBasedOnQuantity(cart);
@@ -82,19 +92,25 @@ namespace Book_Store.Areas.Customer.Controllers
 
         [HttpPost]
         [ActionName("Summary")]
+        //hitting button "place order" on summary page
         public IActionResult SummaryPOST()
         {
+            //get logged user id
 			var claimsIdentity = (ClaimsIdentity)User.Identity;
 			var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
 
+            //get shopping cart list
             ShoppingCartVM.ShoppingCartList = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == userId,
                 includeProperties: "Product");
 
+            //set order date and user id
             ShoppingCartVM.OrderHeader.OrderDate = DateTime.Now;
 			ShoppingCartVM.OrderHeader.ApplicationUserId = userId;
 
+            //get user by id
 			ApplicationUser applicationUser = _unitOfWork.ApplicationUser.Get(u => u.Id == userId);
 
+            //set order total
 			foreach (var cart in ShoppingCartVM.ShoppingCartList)
 			{
 				cart.Price = GetPriceBasedOnQuantity(cart);
@@ -117,6 +133,7 @@ namespace Book_Store.Areas.Customer.Controllers
 			_unitOfWork.OrderHeader.Add(ShoppingCartVM.OrderHeader);
 			_unitOfWork.Save();
 
+            //get order details
 			foreach (var cart in ShoppingCartVM.ShoppingCartList)
 			{
 				OrderDetail orderDetail = new()
@@ -130,6 +147,7 @@ namespace Book_Store.Areas.Customer.Controllers
 				_unitOfWork.Save();
 			}
 
+            //if user is not company, then go to payment
 			if (applicationUser.CompanyId.GetValueOrDefault() == 0)
 			{
 				//it is a regular customer account and we need to capture payment
@@ -175,7 +193,10 @@ namespace Book_Store.Areas.Customer.Controllers
 
         public IActionResult OrderConfirmation(int id)
         {
+            //get order header
 			OrderHeader orderHeader = _unitOfWork.OrderHeader.Get(u => u.Id == id, includeProperties: "ApplicationUser");
+
+            //order by customer
 			if (orderHeader.PaymentStatus != SD.PaymentStatusDelayedPayment)
 			{
 				//this is an order by customer
@@ -183,6 +204,7 @@ namespace Book_Store.Areas.Customer.Controllers
 				var service = new SessionService();
 				Session session = service.Get(orderHeader.SessionId);
 
+                //update status
 				if (session.PaymentStatus.ToLower() == "paid")
 				{
 					_unitOfWork.OrderHeader.UpdateStripePaymentID(id, session.Id, session.PaymentIntentId);
@@ -193,9 +215,11 @@ namespace Book_Store.Areas.Customer.Controllers
 
             }
 
+            //send email with order info
             _emailSender.SendEmailAsync(orderHeader.ApplicationUser.Email, "New Order - Book_Store",
                 $"<p>New Order Created - No: {orderHeader.Id}</p>");
 
+            //empty cart
 			List<ShoppingCart> shoppingCarts = _unitOfWork.ShoppingCart
 				.GetAll(u => u.ApplicationUserId == orderHeader.ApplicationUserId).ToList();
 
@@ -205,6 +229,7 @@ namespace Book_Store.Areas.Customer.Controllers
 			return View(id);
         }
 
+        //plus button in cart
 			public IActionResult Plus(int cartId)
         {
             var cartFromDb = _unitOfWork.ShoppingCart.Get(u => u.Id == cartId);
@@ -214,9 +239,12 @@ namespace Book_Store.Areas.Customer.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //minus button in cart
         public IActionResult Minus(int cartId)
         {
             var cartFromDb = _unitOfWork.ShoppingCart.Get(u => u.Id == cartId, tracked: true);
+
+            //remove item if 1 item 
             if (cartFromDb.Count <= 1)
             {
                 //remove that from cart
@@ -237,6 +265,7 @@ namespace Book_Store.Areas.Customer.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //delete button in cart
         public IActionResult Remove(int cartId)
         {
             var cartFromDb = _unitOfWork.ShoppingCart.Get(u => u.Id == cartId, tracked:true);
@@ -252,6 +281,7 @@ namespace Book_Store.Areas.Customer.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //get total price depending on amount
         private double GetPriceBasedOnQuantity(ShoppingCart shoppingCart)
         {
             if (shoppingCart.Count <= 50)
