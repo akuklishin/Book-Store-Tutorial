@@ -1,8 +1,0 @@
-C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\obj\Debug\net7.0\Book_Store.csproj.AssemblyReference.cache
-C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\obj\Debug\net7.0\Book_Store.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\obj\Debug\net7.0\Book_Store.AssemblyInfoInputs.cache
-C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\obj\Debug\net7.0\Book_Store.AssemblyInfo.cs
-C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\obj\Debug\net7.0\Book_Store.csproj.CoreCompileInputs.cache
-C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\obj\Debug\net7.0\Book_Store.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\obj\Debug\net7.0\Book_Store.RazorAssemblyInfo.cache
-C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Book_Store\obj\Debug\net7.0\Book_Store.RazorAssemblyInfo.cs
