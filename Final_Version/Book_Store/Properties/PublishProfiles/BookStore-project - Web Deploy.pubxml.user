@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfqq2bYprQUa1cG+LiQ63QgAAAAACAAAAAAAQZgAAAAEAACAAAADX4fb4uC6iGYlL6GI/ecN9Tm+3LrSRz5a2ETvuO5XYmQAAAAAOgAAAAAIAACAAAACWkFxnnNYjw7SoJfUohrog7tzzrSgMxbXivyIzscfYeYAAAAC32YU+0iusr83Dl45kcnu0It7Fx49vS3zMmPBy4RFLcbHU6pk/QhmIDy9mqJSk5WudgEbH+byw/WLCAOVEkek9Y08lAGtaPih21hfAm77xD9HjIlkYdHrsxnCJ0jM6EeCILin0NnlSGj/pOBSKl5RbQp/xko9qgbeb5uMOncDOB0AAAAAS0hMjdzAcGTyWvMlL+o8nLMM6iN1pNYMfl4PuU6iZskjK+hoghOCT6ynSRe+JMzuCZiFang22eHBtqs5wBhM0</EncryptedPassword>
+    <History>True|2023-09-17T14:49:28.2455201Z;True|2023-09-15T16:54:50.4349603-04:00;True|2023-09-15T16:20:05.8344874-04:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:book-store-projectdbserver.database.windows.net,1433%3bInitial Catalog=Book_Store_Project_db%3bUser Id=sqladmin%40book-store-projectdbserver%3bPassword=Admin123!</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

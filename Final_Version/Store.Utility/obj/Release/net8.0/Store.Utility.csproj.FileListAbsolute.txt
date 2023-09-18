@@ -1,0 +1,15 @@
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\BookStore_Publish\Store.Utility\bin\Release\net8.0\Store.Utility.deps.json
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\BookStore_Publish\Store.Utility\bin\Release\net8.0\Store.Utility.runtimeconfig.json
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\BookStore_Publish\Store.Utility\bin\Release\net8.0\Store.Utility.dll
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\BookStore_Publish\Store.Utility\bin\Release\net8.0\Store.Utility.pdb
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\BookStore_Publish\Store.Utility\obj\Release\net8.0\Store.Utility.csproj.AssemblyReference.cache
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\BookStore_Publish\Store.Utility\obj\Release\net8.0\Store.Utility.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\BookStore_Publish\Store.Utility\obj\Release\net8.0\Store.Utility.AssemblyInfoInputs.cache
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\BookStore_Publish\Store.Utility\obj\Release\net8.0\Store.Utility.AssemblyInfo.cs
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\BookStore_Publish\Store.Utility\obj\Release\net8.0\Store.Utility.csproj.CoreCompileInputs.cache
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\BookStore_Publish\Store.Utility\obj\Release\net8.0\Store.Utility.sourcelink.json
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\BookStore_Publish\Store.Utility\obj\Release\net8.0\Store.Utility.dll
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\BookStore_Publish\Store.Utility\obj\Release\net8.0\refint\Store.Utility.dll
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\BookStore_Publish\Store.Utility\obj\Release\net8.0\Store.Utility.pdb
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\BookStore_Publish\Store.Utility\obj\Release\net8.0\Store.Utility.genruntimeconfig.cache
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\BookStore_Publish\Store.Utility\obj\Release\net8.0\ref\Store.Utility.dll

@@ -1,0 +1,5 @@
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Store.Utility\obj\Debug\net7.0\Store.Utility.csproj.AssemblyReference.cache
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Store.Utility\obj\Debug\net7.0\Store.Utility.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Store.Utility\obj\Debug\net7.0\Store.Utility.AssemblyInfoInputs.cache
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Store.Utility\obj\Debug\net7.0\Store.Utility.AssemblyInfo.cs
+C:\Users\akukl\OneDrive\Desktop\FullStackDeveloper_FSD-07EQ\Lessons\ASPNET_CORE_8_MVC\Store\Store.Utility\obj\Debug\net7.0\Store.Utility.csproj.CoreCompileInputs.cache
