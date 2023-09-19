@@ -15,11 +15,13 @@ namespace Store.Models
         public int Id { get; set; }
         [Required]
         public int OrderHeaderId { get; set; }
+        //foregn key to order header
         [ForeignKey("OrderHeaderId")]
         [ValidateNever]
         public OrderHeader OrderHeader { get; set; }
         [Required]
         public int ProductId { get; set; }
+        //foregn key to product
         [ForeignKey("ProductId")]
         [ValidateNever]
         public Product Product { get; set; }

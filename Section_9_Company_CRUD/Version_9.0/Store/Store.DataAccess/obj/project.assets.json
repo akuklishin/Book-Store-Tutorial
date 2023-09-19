@@ -13017,11 +13017,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Store.DataAccess\\Store.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_9_Company_CRUD\\Version_9.0\\Store\\Store.DataAccess\\Store.DataAccess.csproj",
       "projectName": "Store.DataAccess",
-      "projectPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Store.DataAccess\\Store.DataAccess.csproj",
+      "projectPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_9_Company_CRUD\\Version_9.0\\Store\\Store.DataAccess\\Store.DataAccess.csproj",
       "packagesPath": "C:\\Users\\akukl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Store.DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_9_Company_CRUD\\Version_9.0\\Store\\Store.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -13043,11 +13043,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Store.Models\\Store.Models.csproj": {
-              "projectPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Store.Models\\Store.Models.csproj"
+            "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_9_Company_CRUD\\Version_9.0\\Store\\Store.Models\\Store.Models.csproj": {
+              "projectPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_9_Company_CRUD\\Version_9.0\\Store\\Store.Models\\Store.Models.csproj"
             },
-            "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Store.Utility\\Store.Utility.csproj": {
-              "projectPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Store.Utility\\Store.Utility.csproj"
+            "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_9_Company_CRUD\\Version_9.0\\Store\\Store.Utility\\Store.Utility.csproj": {
+              "projectPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_9_Company_CRUD\\Version_9.0\\Store\\Store.Utility\\Store.Utility.csproj"
             }
           }
         }

@@ -9,6 +9,7 @@ namespace Store.DataAccess.Repository.IRepository
 {
     public interface IOrderDetailRepository : IRepository<OrderDetail>
     {
+        //update order detail
         void Update(OrderDetail obj);
     }
 }

@@ -24,6 +24,7 @@ namespace Book_Store.Areas.Customer.Controllers
             _unitOfWork = unitOfWork;
         }
 
+        //index action method
         public IActionResult Index()
         {
 
@@ -67,7 +68,7 @@ namespace Book_Store.Areas.Customer.Controllers
 
             shoppingCart.ApplicationUserId = userId;
 
-            /GetHashCode current cart
+            //Get current cart
             ShoppingCart cartFromDb = _unitOfWork.ShoppingCart.Get(u => u.ApplicationUserId == userId && u.ProductId == shoppingCart.ProductId);
 
             if (cartFromDb != null)
@@ -93,6 +94,7 @@ namespace Book_Store.Areas.Customer.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //Initial code of Home page related to error
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

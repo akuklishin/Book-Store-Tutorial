@@ -11538,11 +11538,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Store.Utility\\Store.Utility.csproj",
+      "projectUniqueName": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_11_Order_Confirmation\\Version_11.0\\Store\\Store.Utility\\Store.Utility.csproj",
       "projectName": "Store.Utility",
-      "projectPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Store.Utility\\Store.Utility.csproj",
+      "projectPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_11_Order_Confirmation\\Version_11.0\\Store\\Store.Utility\\Store.Utility.csproj",
       "packagesPath": "C:\\Users\\akukl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Store.Utility\\obj\\",
+      "outputPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_11_Order_Confirmation\\Version_11.0\\Store\\Store.Utility\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

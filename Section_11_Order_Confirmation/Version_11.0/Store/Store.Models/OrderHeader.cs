@@ -13,6 +13,7 @@ namespace Store.Models
     {
         public int Id { get; set; }
         public string ApplicationUserId { get; set; }
+        //foreign key to Application user
         [ForeignKey("ApplicationUserId")]
         [ValidateNever]
         public ApplicationUser ApplicationUser { get; set; }

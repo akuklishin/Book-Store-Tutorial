@@ -8,7 +8,9 @@ namespace Store.Models.ViewModels
 {
 	public class OrderVM
 	{
-		public OrderHeader OrderHeader { get; set; }
-		public IEnumerable<OrderDetail> OrderDetail { get; set; }
+        //order header
+        public OrderHeader OrderHeader { get; set; }
+        //order details
+        public IEnumerable<OrderDetail> OrderDetail { get; set; }
 	}
 }

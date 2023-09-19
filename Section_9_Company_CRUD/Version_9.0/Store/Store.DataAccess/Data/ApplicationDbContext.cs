@@ -12,22 +12,26 @@ namespace Store.DataAccess.Data
                                 
         }
 
+        //add tables to db with migration
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-       
 
+        //creating initial inputs in db tables
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //added to solve error when added Identity
             base.OnModelCreating(modelBuilder);
 
+            //adding initial Categories
             modelBuilder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Action", DisplayOrder = 1 },
                 new Category { Id = 2, Name = "SciFi", DisplayOrder = 2 },
                 new Category { Id = 3, Name = "History", DisplayOrder = 3 }
                 );
+
+            //adding initial products
             modelBuilder.Entity<Product>().HasData(
                 new Product
                 {
@@ -114,6 +118,7 @@ namespace Store.DataAccess.Data
                     ImageUrl = ""
                 }
                 );
+            //adding initial companies
             modelBuilder.Entity<Company>().HasData(
                 new Company
                 {

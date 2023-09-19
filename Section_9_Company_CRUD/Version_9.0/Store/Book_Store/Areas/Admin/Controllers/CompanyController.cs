@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Store.DataAccess.Repository.IRepository;
 using Store.Models;
 using Store.Models.ViewModels;
@@ -8,10 +9,13 @@ using Store.Utility;
 
 namespace Book_Store.Areas.Admin.Controllers
 {
+    //setting area of access
     [Area("Admin")]
+    //setting role of access
     [Authorize(Roles = SD.Role_Admin)]
     public class CompanyController : Controller
     {
+        //dependency injections
         private readonly IUnitOfWork _unitOfWork;
         private readonly IWebHostEnvironment _webHostEnvironment;
         public CompanyController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment)
@@ -19,19 +23,24 @@ namespace Book_Store.Areas.Admin.Controllers
             _unitOfWork = unitOfWork;
             _webHostEnvironment = webHostEnvironment;
         }
+        //index Action method
         public IActionResult Index()
         {
             return View();
         }
 
+        //dependency injections
         public IActionResult Upsert(int? id) //Update + Insert
         {
-            Company Company = new Company(); 
+            Company Company = new Company();
+
+            //if hidden id input is not populated (== null) then create
             if (id == null || id == 0)
             {
                 //create
                 return View(Company);
             }
+            //otherwise update
             else
             {
                 //update
@@ -40,9 +49,12 @@ namespace Book_Store.Areas.Admin.Controllers
             }
         }
 
+        //Upsert Post method
         [HttpPost]
         public IActionResult Upsert(Company CompanyObj)
         {
+            
+            //if everithing passed the validation
             if (ModelState.IsValid)
             {
 
@@ -62,8 +74,10 @@ namespace Book_Store.Areas.Admin.Controllers
                     TempData["Success"] = "Company updated successfully";
                 }
 
+                //save to db
                 _unitOfWork.Save();
 
+                //redirect to action
                 return RedirectToAction("Index");
             }
             else
@@ -74,28 +88,34 @@ namespace Book_Store.Areas.Admin.Controllers
         }
 
         #region API CALLS
+        //display companies
         [HttpGet]
         public IActionResult GetAll()
         {
+            //get list of companies
             List<Company> objCompanyList = _unitOfWork.Company.GetAll().ToList();
+
+            //retrun JSONified result for DataTable
             return Json(new { data = objCompanyList });
         }
 
         [HttpDelete]
         public IActionResult Delete(int? id)
         {
-
+            //get company by id
             var companyToBeDeleted = _unitOfWork.Company.Get(u => u.Id == id);
+
+            //if company not found
             if (companyToBeDeleted == null)
             {
                 return Json(new { success = false, message = "Error while deleting" });
             }
 
+            //remove and save
             _unitOfWork.Company.Remove(companyToBeDeleted);
-            TempData["Success"] = "Company deleted successfully";
             _unitOfWork.Save();
 
-
+            //return succes message
             return Json(new { success = true, message = "Delete Successful" });
         }
 

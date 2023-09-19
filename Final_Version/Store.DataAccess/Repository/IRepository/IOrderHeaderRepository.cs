@@ -9,8 +9,11 @@ namespace Store.DataAccess.Repository.IRepository
 {
     public interface IOrderHeaderRepository : IRepository<OrderHeader>
     {
+        //update order header
         void Update(OrderHeader obj);
-		void UpdateStatus(int id, string orderStatus, string? paymentStatus = null);
-		void UpdateStripePaymentID(int id, string sessionId, string paymentIntentId);
+        //update order status
+        void UpdateStatus(int id, string orderStatus, string? paymentStatus = null);
+        //update stripe payment id
+        void UpdateStripePaymentID(int id, string sessionId, string paymentIntentId);
 	}
 }

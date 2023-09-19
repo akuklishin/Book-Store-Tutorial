@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qKjhtgjXI8UDxD+r6wBBXDJp8GX7YabPnVEKB6qtctBxdeZJqfNJMhK2nvavxYcJ8OFN22nXQfthATz2dBQ5/w==",
+  "dgSpecHash": "uR4xgiigiTdTXiTSRb/JE+QkxU0JoSAN/lqWg9yLgBN+vVjtYasBmGuuZOSyWJwvgn/0nmuFY806na2fJzK5OA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Store\\Store.Models\\Store.Models.csproj",
+  "projectFilePath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_11_Order_Confirmation\\Version_11.0\\Store\\Store.Models\\Store.Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\akukl\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\akukl\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

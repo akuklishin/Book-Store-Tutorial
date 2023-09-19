@@ -11,12 +11,14 @@ namespace Store.DataAccess.Repository
 {
     public class OrderDetailRepository : Repository<OrderDetail>, IOrderDetailRepository
     {
+        //dependency injection
         private ApplicationDbContext _db;
         public OrderDetailRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
         }
 
+        //update order detail
         public void Update(OrderDetail obj)
         {
             _db.OrderDetails.Update(obj);

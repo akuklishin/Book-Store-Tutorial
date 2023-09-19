@@ -14,6 +14,7 @@ namespace Store.Models
         public int Id { get; set; }
 
         public int ProductId { get; set; }
+        //foreign key for products table
         [ForeignKey("ProductId")]
         [ValidateNever]
         public Product Product { get; set; }
@@ -21,6 +22,7 @@ namespace Store.Models
         public int Count { get; set; }
 
         public string ApplicationUserId { get; set; }
+        //foreign key for products table
         [ForeignKey("ApplicationUserId")]
         [ValidateNever]
         public ApplicationUser ApplicationUser { get; set; }

@@ -28,11 +28,13 @@ namespace Store.DataAccess.Data
             //added to solve error when added Identity
             base.OnModelCreating(modelBuilder);
 
+            //adding initial Categories
             modelBuilder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Action", DisplayOrder = 1 },
                 new Category { Id = 2, Name = "SciFi", DisplayOrder = 2 },
                 new Category { Id = 3, Name = "History", DisplayOrder = 3 }
                 );
+            //adding initial products
             modelBuilder.Entity<Product>().HasData(
                 new Product
                 {
@@ -113,6 +115,7 @@ namespace Store.DataAccess.Data
                     CategoryId = 3
                 }
                 );
+            //adding initial companies
             modelBuilder.Entity<Company>().HasData(
                 new Company
                 {

@@ -28,11 +28,14 @@ namespace Book_Store.Areas.Admin.Controllers
         {
 			_unitOfWork = unitOfWork;
 		}
+
+        //index action method
         public IActionResult Index()
 		{
 			return View();
 		}
 
+        //order details action method
         public IActionResult Details(int orderId)
         {
             //populating order view model
@@ -88,8 +91,11 @@ namespace Book_Store.Areas.Admin.Controllers
         //change status to start processing method
         public IActionResult StartProcessing()
         {
+            //update and save order status
             _unitOfWork.OrderHeader.UpdateStatus(OrderVM.OrderHeader.Id, SD.StatusInProcess);
             _unitOfWork.Save();
+
+            //success message
             TempData["Success"] = "Order Details Updated Successfully.";
 
             //redirecting to the Details Action with passed orderHeader id
@@ -101,7 +107,7 @@ namespace Book_Store.Areas.Admin.Controllers
         //change status to shipped action method
         public IActionResult ShipOrder()
         {
-            //get orderheader by id
+            //get order header by id
             var orderHeader = _unitOfWork.OrderHeader.Get(u => u.Id == OrderVM.OrderHeader.Id);
 
             //update necessary properties
@@ -116,32 +122,40 @@ namespace Book_Store.Areas.Admin.Controllers
                 orderHeader.PaymentDueDate = DateTime.Now.AddDays(30);
             }
 
+            //update and save
             _unitOfWork.OrderHeader.Update(orderHeader);
             _unitOfWork.Save();
+
+            //success message
             TempData["Success"] = "Order Shipped Successfully.";
+
+            //redirecting to the Details Action with passed orderHeader id
             return RedirectToAction(nameof(Details), new { orderId = OrderVM.OrderHeader.Id });
         }
 
         [HttpPost]
         [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
-        //cansel order action method
+        //cancel order action method
         public IActionResult CancelOrder()
         {
-            //get order header
+            //get order header from db
             var orderHeader = _unitOfWork.OrderHeader.Get(u => u.Id == OrderVM.OrderHeader.Id);
 
             //if already paid, do refund with stripe and then change status
             if (orderHeader.PaymentStatus == SD.PaymentStatusApproved)
             {
+                //populate refund options
                 var options = new RefundCreateOptions
                 {
                     Reason = RefundReasons.RequestedByCustomer,
                     PaymentIntent = orderHeader.PaymentIntentId
                 };
 
+                //creating stripe refund service
                 var service = new RefundService();
                 Refund refund = service.Create(options);
 
+                //update order and payment status
                 _unitOfWork.OrderHeader.UpdateStatus(orderHeader.Id, SD.StatusCancelled, SD.StatusRefunded);
             }
             //no payment yet made
@@ -150,8 +164,13 @@ namespace Book_Store.Areas.Admin.Controllers
                 _unitOfWork.OrderHeader.UpdateStatus(orderHeader.Id, SD.StatusCancelled, SD.StatusCancelled);
             }
 
+            //save to db
             _unitOfWork.Save();
+
+            //success message
             TempData["Success"] = "Order Cancelled Successfully.";
+
+            //redirecting to the Details Action with passed orderHeader id
             return RedirectToAction(nameof(Details), new { orderId = OrderVM.OrderHeader.Id });
 
         }
@@ -168,7 +187,11 @@ namespace Book_Store.Areas.Admin.Controllers
                 .GetAll(u => u.OrderHeaderId == OrderVM.OrderHeader.Id, includeProperties: "Product");
 
             //stripe logic
+
+            //domain
             var domain = Request.Scheme + "://" + Request.Host.Value + "/";
+
+            //population strip payment options
             var options = new SessionCreateOptions
             {
                 SuccessUrl = domain + $"admin/order/PaymentConfirmation?orderHeaderId={OrderVM.OrderHeader.Id}",
@@ -177,10 +200,12 @@ namespace Book_Store.Areas.Admin.Controllers
                 Mode = "payment",
             };
 
+            //looping through each detail
             foreach (var item in OrderVM.OrderDetail)
             {
                 var sessionLineItem = new SessionLineItemOptions
                 {
+                    //populating stripe price data properties
                     PriceData = new SessionLineItemPriceDataOptions
                     {
                         UnitAmount = (long)(item.Price * 100), // $20.50 => 2050
@@ -190,17 +215,21 @@ namespace Book_Store.Areas.Admin.Controllers
                             Name = item.Product.Title
                         }
                     },
+                    //set quantity
                     Quantity = item.Count
                 };
+                //session line item to LineItems 
                 options.LineItems.Add(sessionLineItem);
             }
 
-
+            //create stripe session
             var service = new SessionService();
             Session session = service.Create(options);
 
+            //update stripe payment id
             _unitOfWork.OrderHeader.UpdateStripePaymentID(OrderVM.OrderHeader.Id, session.Id, session.PaymentIntentId);
 
+            //save to db
             _unitOfWork.Save();
 
             Response.Headers.Add("Location", session.Url);
@@ -217,13 +246,20 @@ namespace Book_Store.Areas.Admin.Controllers
             {
                 //this is an order by company
 
+                //getting payment sesion
                 var service = new SessionService();
                 Session session = service.Get(orderHeader.SessionId);
 
+                //if status is paid, proceed
                 if (session.PaymentStatus.ToLower() == "paid")
                 {
+                    //update payment intent id
                     _unitOfWork.OrderHeader.UpdateStripePaymentID(orderHeaderId, session.Id, session.PaymentIntentId);
+
+                    //update order and payment status
                     _unitOfWork.OrderHeader.UpdateStatus(orderHeaderId, orderHeader.OrderStatus, SD.PaymentStatusApproved);
+
+                    //save to db
                     _unitOfWork.Save();
                 }
 
@@ -244,6 +280,7 @@ namespace Book_Store.Areas.Admin.Controllers
             //if logged user is admin or employee, display all orders
             if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
             {
+                //get all orders
                 objOrderHeaders = _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser").ToList();
             }
             else

@@ -11,14 +11,14 @@ namespace Store.DataAccess.Repository
 {
     public class ShoppingCartRepository : Repository<ShoppingCart>, IShoppingCartRepository
     {
+        //dependency injection
         private ApplicationDbContext _db;
         public ShoppingCartRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
         }
 
-
-
+        //update shopping cart
         public void Update(ShoppingCart obj)
         {
             _db.ShoppingCarts.Update(obj);

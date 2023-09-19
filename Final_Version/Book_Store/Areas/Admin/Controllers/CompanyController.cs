@@ -49,7 +49,7 @@ namespace Book_Store.Areas.Admin.Controllers
             }
         }
 
-        
+        //Upsert Post method
         [HttpPost]
         public IActionResult Upsert(Company CompanyObj)
         {

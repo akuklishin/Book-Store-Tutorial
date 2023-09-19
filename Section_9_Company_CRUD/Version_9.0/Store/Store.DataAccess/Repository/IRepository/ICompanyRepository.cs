@@ -9,6 +9,7 @@ namespace Store.DataAccess.Repository.IRepository
 {
     public interface ICompanyRepository : IRepository<Company>
     {
+        //update company
         void Update(Company obj);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Store.DataAccess.Data;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
+using Store.DataAccess.Data;
 using Store.DataAccess.Repository.IRepository;
 using Store.Models;
 using System;
@@ -11,6 +12,7 @@ namespace Store.DataAccess.Repository
 {
     public class OrderHeaderRepository : Repository<OrderHeader>, IOrderHeaderRepository
     {
+		//dependency injection
         private ApplicationDbContext _db;
         public OrderHeaderRepository(ApplicationDbContext db) : base(db)
         {
@@ -22,29 +24,43 @@ namespace Store.DataAccess.Repository
             _db.OrderHeaders.Update(obj);
         }
 
-		public void UpdateStatus(int id, string orderStatus, string? paymentStatus = null)
+        //update order status
+        public void UpdateStatus(int id, string orderStatus, string? paymentStatus = null)
 		{
+			//get order from db by id
 			var orderFromDb = _db.OrderHeaders.FirstOrDefault(u => u.Id == id);
+			//if order exists
 			if (orderFromDb != null)
 			{
+				//assign order status
 				orderFromDb.OrderStatus = orderStatus;
+
+				//if pamyment status is not empty
 				if (!string.IsNullOrEmpty(paymentStatus))
 				{
+					//assign payment status
 					orderFromDb.PaymentStatus = paymentStatus;
 				}
 			}
 		}
 
-		public void UpdateStripePaymentID(int id, string sessionId, string paymentIntentId)
+        //update stripe payment id
+        public void UpdateStripePaymentID(int id, string sessionId, string paymentIntentId)
 		{
+			//get order from db by id
 			var orderFromDb = _db.OrderHeaders.FirstOrDefault(u => u.Id == id);
+			//if there is session id
 			if (!string.IsNullOrEmpty(sessionId))
 			{
+				//assign session id
 				orderFromDb.SessionId = sessionId;
 			}
+			//if there is payment intent id
 			if (!string.IsNullOrEmpty(paymentIntentId))
 			{
+				//assign payment intent id
 				orderFromDb.PaymentIntentId = paymentIntentId;
+				//set payment date as datetime stamp
 				orderFromDb.PaymentDate = DateTime.Now;
 			}
 		}

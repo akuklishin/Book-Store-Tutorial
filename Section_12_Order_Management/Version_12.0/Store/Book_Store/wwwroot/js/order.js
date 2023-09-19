@@ -1,6 +1,7 @@
 ﻿var dataTable;
 
 $(document).ready(function () {
+    //depending on url (status there) display order by status
     var url = window.location.search;
     if (url.includes("inprocess")) {
         loadDataTable("inprocess");
@@ -25,6 +26,7 @@ $(document).ready(function () {
     }
 });
 
+//load data table with orders
 function loadDataTable(status) {
     dataTable = $('#tblData').DataTable({
         "ajax": { url: '/admin/order/getall?status=' + status },

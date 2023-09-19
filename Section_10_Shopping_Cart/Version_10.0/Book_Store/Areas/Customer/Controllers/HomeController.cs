@@ -13,6 +13,7 @@ namespace Book_Store.Areas.Customer.Controllers
     [Area("Customer")]
     public class HomeController : Controller
     {
+        //dependency injection
         private readonly ILogger<HomeController> _logger;
         private readonly IUnitOfWork _unitOfWork;
 
@@ -22,14 +23,19 @@ namespace Book_Store.Areas.Customer.Controllers
             _unitOfWork = unitOfWork;
         }
 
+        //index action method
         public IActionResult Index()
         {
+            //get Product list
             IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category");
+
+            //pass to view
             return View(productList);
         }
 
         public IActionResult Details(int productId)
         {
+            //populate shopping cart
             ShoppingCart cart = new()
             {
                 Product = _unitOfWork.Product.Get(u => u.Id == productId, includeProperties: "Category"),
@@ -43,10 +49,14 @@ namespace Book_Store.Areas.Customer.Controllers
         [Authorize]
         public IActionResult Details(ShoppingCart shoppingCart)
         {
+            //get logged user id
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            //set user of cart to logged in user
             shoppingCart.ApplicationUserId = userId;
 
+            //Get current cart
             ShoppingCart cartFromDb = _unitOfWork.ShoppingCart.Get(u => u.ApplicationUserId == userId && u.ProductId == shoppingCart.ProductId);
 
             if (cartFromDb != null)
@@ -58,21 +68,18 @@ namespace Book_Store.Areas.Customer.Controllers
             }
             else
             {
-                //add cart record
+                // card does not exist, so add cart record
                 _unitOfWork.ShoppingCart.Add(shoppingCart);
                 _unitOfWork.Save();
             }
 
+            //success message
             TempData["success"] = "Cart updated successfully";
 
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
+        //Initial code of Home page related to error
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -11,12 +11,14 @@ namespace Store.DataAccess.Repository
 {
     public class CompanyRepository : Repository<Company>, ICompanyRepository
     {
+        //dependency injection
         private ApplicationDbContext _db;
         public CompanyRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
         }
 
+        //update company
         public void Update(Company obj)
         {
             _db.Companies.Update(obj);

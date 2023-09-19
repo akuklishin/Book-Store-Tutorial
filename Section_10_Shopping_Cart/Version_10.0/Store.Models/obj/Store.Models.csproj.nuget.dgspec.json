@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Versions\\Version_10.0\\Version_10.0\\Store.Models\\Store.Models.csproj": {}
+    "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_10_Shopping_Cart\\Version_10.0\\Store.Models\\Store.Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Versions\\Version_10.0\\Version_10.0\\Store.Models\\Store.Models.csproj": {
+    "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_10_Shopping_Cart\\Version_10.0\\Store.Models\\Store.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Versions\\Version_10.0\\Version_10.0\\Store.Models\\Store.Models.csproj",
+        "projectUniqueName": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_10_Shopping_Cart\\Version_10.0\\Store.Models\\Store.Models.csproj",
         "projectName": "Store.Models",
-        "projectPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Versions\\Version_10.0\\Version_10.0\\Store.Models\\Store.Models.csproj",
+        "projectPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_10_Shopping_Cart\\Version_10.0\\Store.Models\\Store.Models.csproj",
         "packagesPath": "C:\\Users\\akukl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Versions\\Version_10.0\\Version_10.0\\Store.Models\\obj\\",
+        "outputPath": "C:\\Users\\akukl\\OneDrive\\Desktop\\FullStackDeveloper_FSD-07EQ\\Lessons\\ASPNET_CORE_8_MVC\\Git_Tutorial_ECommerce\\Section_10_Shopping_Cart\\Version_10.0\\Store.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
