@@ -1,0 +1,27 @@
+﻿<!-- Check if there's a "success" message in TempData -->
+@if (TempData["success"] != null)
+{
+    <!-- Include the jQuery library which is required for the toastr plugin -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!-- Include the toastr library, a popular library for displaying notifications in web applications -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" /></script>
+    <!-- Script block to display a success notification using the toastr plugin -->
+    <script type="text/javascript">
+        // Show a success notification with the message from TempData["success"]
+        toastr.success('@TempData["success"]');
+    </script>
+}
+
+<!-- Check if there's an "error" message in TempData -->
+@if (TempData["error"] != null)
+{
+    <!-- Include the jQuery library which is required for the toastr plugin -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!-- Include the toastr library -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" /></script>
+    <!-- Script block to display an error notification using the toastr plugin -->
+    <script type="text/javascript">
+        // Show an error notification with the message from TempData["error"]
+        toastr.error('@TempData["error"]');
+    </script>
+}

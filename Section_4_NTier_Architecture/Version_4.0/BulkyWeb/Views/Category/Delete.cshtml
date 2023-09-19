@@ -1,0 +1,59 @@
+﻿<!-- Declare a strongly-typed model for this view. The model is of type 'Category' -->
+@model Category
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient m-lg-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <!-- Display the title "Create Category" with a primary text color -->
+                <h2 class="text-white py-2">Delete Category</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <!-- Begin the HTML form with a post method. This form will send data back to the server when submitted -->
+        <form method="post">
+            <!-- We know that we have ID in the hidden property and when we submit that will be populated so we opt to keep it hidden -->
+            <input asp-for="Id" hidden />
+
+            <!-- Create a container for the form with a border, padding and top margin -->
+            <div class="border p-3 mt-4">              
+
+                <!-- Create the 'Name' input field -->
+                <div class="form-floating py-2 col-12">
+                    <!-- Input field for the 'Name' property. The "asp-for" tag helper binds this input to the model's 'Name' property -->
+                    <input asp-for="Name" disabled class="form-control border-0 shadow" />
+
+                    <!-- Display a label for the 'Name' input field. The "asp-for" tag helper sets the label text based on the model's property name -->
+                    <label asp-for="Name" class="ms-2"></label>                 
+                </div>
+
+                <!-- Create a row for the 'DisplayOrder' input field -->
+                <div class="form-floating py-2 col-12">
+                    <!-- Input field for the 'DisplayOrder' property. The "asp-for" tag helper binds this input to the model's 'DisplayOrder' property -->
+                    <input asp-for="DisplayOrder" disabled class="form-control border-0 shadow" />
+
+                    <!-- Display a label for the 'DisplayOrder' input field. The "asp-for" tag helper sets the label text based on the model's property name -->
+                    <label asp-for="DisplayOrder" class="ms-2"></label>
+                </div>
+
+                <!-- Create a row for the action buttons -->
+                <div class="row mt-3">
+                    <!-- Create a column for the 'Delete' button -->
+                    <div class="col-6 col-md-3">
+                        <!-- Define a submit button to submit the form -->
+                        <button type="submit" class="btn btn-danger form-control">Delete</button>
+                    </div>
+
+                    <!-- Create a column for the 'Back To List' button -->
+                    <div class="col-6 col-md-3">
+                        <!-- Create a link (styled as a button) that navigates back to the Category Index view -->
+                        <a asp-controller="Category" asp-action="Index" class="btn btn-outline-primary border form-control">
+                            Back To List
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
