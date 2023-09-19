@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Essential meta tags for responsive web design -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Dynamic title based on the view using this layout -->
+    <title>@ViewData["Title"] - BulkyWeb</title>
+
+    <!-- Linking to Bootstrap and custom stylesheets for the application's look and feel -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BulkyWeb.styles.css" asp-append-version="true" />
+
+    <!-- Adding Bootstrap icons and toastr notifications stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+</head>
+<body>
+    <!-- Main website header with navigation bar -->
+    <header>
+        <!-- Navbar with branding and links for navigation -->
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <!-- Branding link -->
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BulkyWeb</a>
+
+                <!-- Hamburger menu icon for mobile view -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar links for main navigation -->
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Category" asp-action="Index">Category</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main content area of the website -->
+    <div class="container">
+        <main role="main" class="pb-3">
+            <!-- Embedding notification system (toastr) for displaying alerts/notifications -->
+            <partial name="_Notification" />
+            <!-- Placeholder for the content of child views -->
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Website footer with custom message and authors' names -->
+    <footer class="border-top footer bg-primary text-muted">
+        <div class="text-center">
+            Made with <i class="bi bi-heart-fill"></i> by Aleksejs, Arjun, Delara and Mackenzie
+        </div>
+    </footer>
+
+    <!-- Linking to essential JS libraries and custom scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Placeholder for additional scripts that specific views might need -->
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

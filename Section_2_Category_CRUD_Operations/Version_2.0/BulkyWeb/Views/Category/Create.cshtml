@@ -1,0 +1,65 @@
+﻿<!-- Declare a strongly-typed model for this view. The model is of type 'Category' -->
+@model Category
+
+<!-- Begin the HTML form with a post method. This form will send data back to the server when submitted -->
+<form method="post">
+
+    <!-- Create a container for the form with a border, padding and top margin -->
+    <div class="border p-3 mt-4">
+
+        <!-- Create a row for the header/title of the form -->
+        <div class="row pb-2">
+            <!-- Display the title "Create Category" with a primary text color -->
+            <h2 class="text-primary">Create Category</h2>
+            <!-- Horizontal rule to separate title from the rest of the form -->
+            <hr />
+        </div>
+
+        <!-- DEMO: ASP validation summary for all error messages -->
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <!-- Create a row for the 'Name' input field -->
+        <div class="mb-3 row p-1">
+            <!-- Display a label for the 'Name' input field. The "asp-for" tag helper sets the label text based on the model's property name -->
+            <label asp-for="Name" class="p-0"></label>
+            <!-- Input field for the 'Name' property. The "asp-for" tag helper binds this input to the model's 'Name' property -->
+            <input asp-for="Name" class="form-control" />
+            <!-- Display validation messages for the 'Name' input. If the 'Name' fails validation, an error message will show up here -->
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <!-- Create a row for the 'DisplayOrder' input field -->
+        <div class="mb-3 row p-1">
+            <!-- Display a label for the 'DisplayOrder' input field. The "asp-for" tag helper sets the label text based on the model's property name -->
+            <label asp-for="DisplayOrder" class="p-0"></label>
+            <!-- Input field for the 'DisplayOrder' property. The "asp-for" tag helper binds this input to the model's 'DisplayOrder' property -->
+            <input asp-for="DisplayOrder" class="form-control" />
+            <!-- Display validation messages for the 'DisplayOrder' input. If the 'DisplayOrder' fails validation, an error message will show up here -->
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+        </div>
+
+        <!-- Create a row for the action buttons -->
+        <div class="row">
+            <!-- Create a column for the 'Create' button -->
+            <div class="col-6 col-md-3">
+                <!-- Define a submit button to submit the form -->
+                <button type="submit" class="btn btn-primary form-control">Create</button>
+            </div>
+
+            <!-- Create a column for the 'Back To List' button -->
+            <div class="col-6 col-md-3">
+                <!-- Create a link (styled as a button) that navigates back to the Category Index view -->
+                <a asp-controller="Category" asp-action="Index" class="btn btn-outline-secondary border form-control">
+                    Back To List
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@* reference the _ValidationScriptsPartial partial view for client side validation *@
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}
