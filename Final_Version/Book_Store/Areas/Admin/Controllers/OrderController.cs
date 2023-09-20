@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Store.DataAccess.Repository;
 using Store.DataAccess.Repository.IRepository;
@@ -21,12 +22,14 @@ namespace Book_Store.Areas.Admin.Controllers
 	{
 
         //dependency injection
-		private readonly IUnitOfWork _unitOfWork;
+        private readonly IEmailSender _emailSender;
+        private readonly IUnitOfWork _unitOfWork;
         [BindProperty]
         public OrderVM OrderVM { get; set; }
-        public OrderController(IUnitOfWork unitOfWork)
+        public OrderController(IUnitOfWork unitOfWork, IEmailSender emailSender)
         {
-			_unitOfWork = unitOfWork;
+            _emailSender = emailSender;
+            _unitOfWork = unitOfWork;
 		}
 
         //index action method
@@ -108,7 +111,7 @@ namespace Book_Store.Areas.Admin.Controllers
         public IActionResult ShipOrder()
         {
             //get order header by id
-            var orderHeader = _unitOfWork.OrderHeader.Get(u => u.Id == OrderVM.OrderHeader.Id);
+            var orderHeader = _unitOfWork.OrderHeader.Get(u => u.Id == OrderVM.OrderHeader.Id, includeProperties: "ApplicationUser");
 
             //update necessary properties
             orderHeader.TrackingNumber = OrderVM.OrderHeader.TrackingNumber;
@@ -125,6 +128,18 @@ namespace Book_Store.Areas.Admin.Controllers
             //update and save
             _unitOfWork.OrderHeader.Update(orderHeader);
             _unitOfWork.Save();
+
+            //send email with the bill info
+            _emailSender.SendEmailAsync(orderHeader.ApplicationUser.Email, "New Bill - Book_Store",
+                $"<h2>New Bill - No: {orderHeader.Id}</h2>" +
+                $"</br>" +
+                $"<p>Amount to pay: {orderHeader.OrderTotal.ToString("c")}</p>" +
+                $"</br>" +
+                $"<p>Payment Due Date: {orderHeader.PaymentDueDate.ToShortDateString()}</p>" +
+                "</br>" +
+                $"A payee: Book Store LTD" +
+                $"Address: 123 Maple ave" +
+                $"Bank account: 123654789");
 
             //success message
             TempData["Success"] = "Order Shipped Successfully.";
